@@ -1,6 +1,8 @@
+
 from flask_restx import Namespace, Resource, fields
 from models import Filament
 from flask_jwt_extended import jwt_required
+from flask import request
 
 filament_ns = Namespace('filament', description="A namespace for Filaments")
 

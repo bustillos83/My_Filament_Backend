@@ -8,9 +8,6 @@ from filaments import filament_ns
 from auth import auth_ns
 
 
-
-
-
 def create_app(config):
 
     app = Flask(__name__)
