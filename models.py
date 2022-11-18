@@ -18,6 +18,7 @@ class Filament(db.Model):
     name = db.Column(db.String(), nullable=False)
     type = db.Column(db.String(), nullable=False)
     color = db.Column(db.String(), nullable=False)
+    qty = db.Column(db.Integer(), nullable=False)
 
     def __repr__(self):
         return f"<Filament {self.name}>"
@@ -30,10 +31,11 @@ class Filament(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-    def update(self, name, type, color):
+    def update(self, name, type, color, qty):
         self.name = name
         self.type = type
         self.color = color
+        self.qty = qty
 
         db.session.commit()
 

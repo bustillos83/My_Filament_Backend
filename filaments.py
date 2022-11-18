@@ -14,7 +14,8 @@ filament_model = filament_ns.model(
         "id": fields.Integer(),
         "name": fields.String(),
         "type": fields.String(),
-        "color": fields.String()
+        "color": fields.String(),
+        'qty': fields.Integer(),
 
     }
 )
@@ -46,8 +47,8 @@ class FilamentsResource(Resource):
         new_filament = Filament(
             name=data.get('name'),
             type=data.get('type'),
-            color=data.get('color')
-
+            color=data.get('color'),
+            qty=data.get('qty')
 
         )
         new_filament.save()
@@ -76,7 +77,7 @@ class FilementResource(Resource):
         data = request.get_json()
 
         filament_to_update.update(
-            data.get("name"), data.get("type"), data.get("color"))
+            data.get("name"), data.get("type"), data.get("color"), data.get('qty'))
 
         return filament_to_update
 
